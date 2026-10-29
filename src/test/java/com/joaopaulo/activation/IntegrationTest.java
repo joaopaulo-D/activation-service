@@ -53,7 +53,7 @@ public abstract class IntegrationTest {
 
     @BeforeEach
     void resetState() {
-        repository.deleteAll();
+        repository.deleteAllInBatch();
         PROVIDER.resetAll();
     }
 

@@ -1,0 +1,42 @@
+{
+  "interactiveLogin": false,
+  "httpServer": "NettyWrapper",
+  "tokenCallbacks": [
+    {
+      "issuerId": "default",
+      "tokenExpiry": 3600,
+      "requestMappings": [
+        {
+          "requestParam": "client_id",
+          "match": "billing-system",
+          "claims": {
+            "sub": "billing-system",
+            "azp": "billing-system",
+            "aud": ["activation-service"],
+            "scope": "activation:read activation:write"
+          }
+        },
+        {
+          "requestParam": "client_id",
+          "match": "crm-system",
+          "claims": {
+            "sub": "crm-system",
+            "azp": "crm-system",
+            "aud": ["activation-service"],
+            "scope": "activation:read activation:write"
+          }
+        },
+        {
+          "requestParam": "client_id",
+          "match": "reporting-system",
+          "claims": {
+            "sub": "reporting-system",
+            "azp": "reporting-system",
+            "aud": ["activation-service"],
+            "scope": "activation:read"
+          }
+        }
+      ]
+    }
+  ]
+}
